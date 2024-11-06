@@ -11,7 +11,7 @@ const descripcionSeis = ref(null);
 
 const fetchDescripcion = async (field) => {
   try {
-    //   const response = await axios.get("http://localhost:8080/quienSoy");
+     //  const response = await axios.get("http://localhost:8080/quienSoy");
     const response = await axios.get("https://curriculum-rodolfo-parada-api-1.onrender.com/quienSoy");
     return response.data[field];
   } catch (error) {
@@ -117,14 +117,14 @@ const descargarPDF = async () => {
 </div>
 
     
-<div class="container mt-1">
+<div class="container mt-4">
   <div class="row d-flex align-items-start">
     <!-- Contenedor para el video -->
     <div class="col-md-6">
       <div class="embed-responsive embed-responsive-16by9">
         <iframe src="https://player.vimeo.com/video/1026014358?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;
                  autopause=0&amp;player_id=0&amp;app_id=58479" 
-                 width="550" height="720" frameborder="0" 
+                 width="550" height="310" frameborder="0" 
                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
                  title="Rodolfo_Parada_Vimeo">
         </iframe>
@@ -177,7 +177,7 @@ const descargarPDF = async () => {
 .card-programacion {
   width: 80%;
   margin-left:190px;
-  margin-top: -200px;
+  margin-top: -290px;
 
 }
 .card-fullstack {
@@ -222,8 +222,8 @@ const descargarPDF = async () => {
   width: 100%;
   padding: 0;
   overflow: hidden;
-  padding-bottom: 20px; /* Relación de aspecto 16:9 (9/16 = 0.5625) */
-  margin-top: -120px;
+  padding-bottom: 200px; /* Relación de aspecto 16:9 (9/16 = 0.5625) */
+  margin-top: -20px;
   margin-bottom: -150px;
 }
 .embed-responsive-item {
