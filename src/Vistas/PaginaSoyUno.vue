@@ -12,7 +12,7 @@ const descripcionSeis = ref(null);
 const fetchDescripcion = async (field) => {
   try {
      //  const response = await axios.get("http://localhost:8080/quienSoy");
-    const response = await axios.get("https://curriculum-rodolfo-parada-api-1.onrender.com/quienSoy");
+    const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy");
     return response.data[field];
   } catch (error) {
     handleFetchError(error);

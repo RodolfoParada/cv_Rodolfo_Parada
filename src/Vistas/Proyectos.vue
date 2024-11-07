@@ -13,7 +13,7 @@ const paginaActual = ref(1); // Página actual
 const ObtenerProyectos = async () => {
   try {
     //const response = await axios.get("http://localhost:8080/quienSoy/proyectos");
-    const response = await axios.get("https://curriculum-rodolfo-parada-api-1.onrender.com/quienSoy/proyectos");
+    const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/proyectos");
     proyectos.value = response.data;
     console.log("Datos de proyectos:", proyectos.value);
   } catch (err) {

@@ -9,7 +9,7 @@ let scrollInterval = null;
 const obtenerFormaciones = async () => {
   try {
     // const response = await axios.get("http://localhost:8080/quienSoy/formacion");
-    const response = await axios.get("https://curriculum-rodolfo-parada-api-1.onrender.com/quienSoy/formacion");
+    const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/formacion");
     formaciones.value = response.data; // Asignar la respuesta a la referencia
     console.log("Datos de formaciones:", formaciones.value);
   } catch (error) {
