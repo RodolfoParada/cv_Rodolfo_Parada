@@ -45,7 +45,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/cv_rodolfo_parada/'),
+  history: createWebHistory('#'),
   routes,
 });
 
