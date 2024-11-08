@@ -10,7 +10,10 @@ const currentIndex = ref(0); // Índice de la experiencia actual
 const obtenerExperienciasUno = async () => {
   try {
    //  const response = await axios.get( "http://localhost:8080/quienSoy/experiencia");
-   const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/experiencia");
+   // const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/experiencia");
+   const response = await axios.get("/api/quienSoy/experiencia");
+
+  
     experiencias.value = response.data; // Asignar la respuesta a la referencia
     console.log("Datos de experiencias:", experiencias.value);
   } catch (error) {
