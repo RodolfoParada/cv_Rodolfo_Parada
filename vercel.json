@@ -5,7 +5,7 @@
         "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/experiencia"
       },
       {
-        "source": "/api/quieSoy/proyectos",
+        "source": "/api/quienSoy/proyectos",
         "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/proyectos"
       },
       {
