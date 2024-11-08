@@ -1,0 +1,24 @@
+{
+    "rewrites": [
+      {
+        "source": "/api/quienSoy/experiencia",
+        "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/experiencia"
+      },
+      {
+        "source": "/api/proyectos",
+        "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/proyectos"
+      },
+      {
+        "source": "/api/formacion",
+        "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/formacion"
+      },
+      {
+        "source": "/api/quienSoy",
+        "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy"
+      },
+      {
+        "source": "/api/:path*",
+        "destination": "https://https://curriculum-rodolfo-parada-api.onrender.com//:path*"
+      }
+    ]
+  }
