@@ -5,11 +5,11 @@
         "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/experiencia"
       },
       {
-        "source": "/api/proyectos",
+        "source": "/api/quieSoy/proyectos",
         "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/proyectos"
       },
       {
-        "source": "/api/formacion",
+        "source": "/api/quienSoy/formacion",
         "destination": "https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/formacion"
       },
       {
