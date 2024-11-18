@@ -11,8 +11,13 @@ const descripcionCinco = ref(null);
 const fetchDescripcion = async (field) => {
   try {
     //const response = await axios.get("http://localhost:8080/quienSoy");
-    // const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy");
+
+    // este endpoint funciona en local consume el enpoint de vercel
+    //const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy");
+   
+    //este endpoint funciona en github para que en vercel pueda mostrar la información de los enpoind del backend
     const response = await axios.get("/api/quienSoy");
+   
     return response.data[field];
   } catch (error) {
     handleFetchError(error);
@@ -59,7 +64,7 @@ const descargarPDF = async () => {
         style="display: flex; align-items: flex-start; 
         justify-content: flex-start; gap: 20px;">
   <div class="d-flex flex-wrap ">
-    <div class="card" style="width: 25rem; margin-right: 20px">
+    <div class="card card-imagen" style="width: 25rem; margin-right: 20px">
       <img
         src="../assets/imagenes/rodolfo1.jpg"
         alt="Descripción de la imagen"
@@ -77,7 +82,7 @@ const descargarPDF = async () => {
     <div style="flex: 1; margin-left: 20px;">
       
       <div v-if="descripcionTres">
-        <div class="card">
+        <div class="card positionTres">
           <div class="card-body">
             <h5 class="card-title"></h5>
             <div style="text-align: center;">
@@ -89,7 +94,7 @@ const descargarPDF = async () => {
         </div>
       </div>
       <div v-else>
-        <p>Cargando...</p>
+        <p>Estamos cargando la información de Quién Soy desde la API. Esto puede tardar unos minutos.</p>
       </div>
 
 
@@ -105,7 +110,7 @@ const descargarPDF = async () => {
         </div>
       </div>
       <div v-else>
-        <p>Cargando...</p>
+        <p>Cargando...Esto puede tardar unos minutos</p>
       </div>
     </div>
 
@@ -121,9 +126,13 @@ const descargarPDF = async () => {
    <div class="video">
       <div class="" >
         <iframe src="https://player.vimeo.com/video/1026021666?title=0&amp;
-        byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;
-        player_id=0&amp;app_id=58479" 
-        width="1280" height="720" frameborder="0" 
+        byline=0&amp;
+        portrait=0&amp;
+        badge=0&amp;
+        autopause=0&amp;
+        player_id=0&amp;
+        app_id=58479" 
+        width="600" height="340" frameborder="0" 
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
         title="Rodolfo_Parada."></iframe>
       </div>
@@ -136,7 +145,7 @@ const descargarPDF = async () => {
      Descargar Curriculum
     </a>
        <div v-if="descripcionCinco" style="flex: 1; margin-left: 110px">
-        <div class="card mb-5">
+        <div class="card positionCinco mb-5">
           <div class="card-body">
             <h5 class="card-title"></h5>
             <div >
@@ -148,7 +157,7 @@ const descargarPDF = async () => {
         </div>
       </div>
       <div v-else>
-        <p>Cargando...</p>
+        <p>Cargando...Esto puede tardar unos minutos</p>
       </div>
      </div>
     </div>
@@ -212,7 +221,6 @@ button {
    background-color:#4b58b7;
    color:#E4EEFB;
   max-width: 120px;
-  height: 50px;
   text-decoration: none;
 }
 .color-descargas:hover{
@@ -227,7 +235,68 @@ font-size: 1.5rem;
 .positionCuatro{
  width: 365px;
  margin-left: 150px; 
- margin-top:100px;
+ margin-top:100px;}
+
+ .positionCinco{
+ width: 900px;
+ margin-left:-60px; 
 }
+
+
+
+@media (max-width: 576px) and (max-width: 768px) {
+  /* Contenedor principal para permitir superposición */
+  .container {
+    position: relative;
+  background-color: #95AEE9;
+  min-height: 110vh;
+
+  }
+  .card-imagen {
+    display: none;
+  }
+
+  .cv {
+    display: none;
+  }
+
+  .positionTres {
+    position: absolute;
+    top: -20px;
+    width: 290%;
+    height: 35%;
+    margin-left: -160px;
+    z-index: 1; /* Controla el orden de superposición */
+  }
+  .positionCuatro {
+    position: absolute;
+    top: 190px;
+    width: 290%;
+    height: 38%;
+    margin-left: -160px;
+    z-index: 2; /* Controla el orden de superposición */
+  }
+
+  .video iframe {
+    position: absolute;
+    top: -280px;
+    width: 220%;
+    height: 20%;
+    margin-left: -150px;
+    padding: 20 0 auto;
+    z-index: 3; /* Controla el orden de superposición */
+  }
+
+  .positionCinco {
+    position: absolute;
+    top: -990px;
+    width: 290%;
+    height: 30%;
+    margin-left: -240px;
+    z-index: 4; /* Controla el orden de superposición */
+  }
+
+  }
+
 
 </style>

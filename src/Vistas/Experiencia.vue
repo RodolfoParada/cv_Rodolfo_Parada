@@ -9,8 +9,12 @@ const currentIndex = ref(0); // Índice de la experiencia actual
 
 const obtenerExperienciasUno = async () => {
   try {
-   //  const response = await axios.get( "http://localhost:8080/quienSoy/experiencia");
+    //const response = await axios.get( "http://localhost:8080/quienSoy/experiencia");
+       
+   // este endpoint funciona en local consume el enpoint de vercel
    // const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/experiencia");
+   
+   //este endpoint funciona en github para que en vercel pueda mostrar la información de los enpoind del backend
    const response = await axios.get("/api/quienSoy/experiencia");
 
   
@@ -80,7 +84,7 @@ onMounted(() => {
         </div>
       </div>
       <div v-else>
-        <p>Cargando curriculum...</p>
+        <p>Estamos cargando la información de Experiencia desde la API. Esto puede tardar unos minutos.</p>
       </div>      
       <div class="navigation-buttons justify-content-center" >
           <button class="button-color button-color text-white rounded-pill px-3 py-1" 
@@ -154,5 +158,41 @@ ul {
    max-width: 100px;
    height: 40px;
 }
+@media (max-width: 576px) and (max-width: 768px) {
 
+  .card {
+    width: 100%; /* Hacer que la tarjeta ocupe todo el ancho disponible */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+  }
+
+  .imagenes {
+    width: 80px; /* Reducir el tamaño de la imagen */
+    height: 80px; /* Reducir el tamaño de la imagen */
+  }
+
+  .titulo {
+    font-size: 1.5rem; /* Reducir el tamaño del título */
+  }
+
+  .texto {
+    font-size: 14px; /* Reducir el tamaño del texto */
+  }
+
+  .card-body {
+    padding: 10px; /* Añadir algo de padding para que no esté pegado a los bordes */
+  }
+
+  .navigation-buttons {
+    flex-direction: column; /* Apilar los botones de navegación */
+    justify-content: center;
+  }
+
+  .button-color {
+    width: 100%; /* Hacer el botón de navegación más grande en pantallas pequeñas */
+    height: 50px;
+    margin-left: 120px;
+  }
+
+
+}
 </style>

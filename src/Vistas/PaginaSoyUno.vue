@@ -11,8 +11,12 @@ const descripcionSeis = ref(null);
 
 const fetchDescripcion = async (field) => {
   try {
-     //  const response = await axios.get("http://localhost:8080/quienSoy");
+    // const response = await axios.get("http://localhost:8080/quienSoy");
+
+    // este endpoint funciona en local consume el enpoint de vercel
     //const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy");
+   
+    //este endpoint funciona en github para que en vercel pueda mostrar la información de los enpoind del backend
     const response = await axios.get("/api/quienSoy");
     return response.data[field];
   } catch (error) {
@@ -69,14 +73,15 @@ const descargarPDF = async () => {
       </div>
     </div>
     <div v-else>
-      <p>Cargando...</p>
+      <p>Estamos cargando la información de Quién Soy desde la API. Esto puede tardar unos minutos.</p>
     </div>
   
     <div class="container mt-5 texto"
          style="display: flex; align-items: flex-start; 
          justify-content: flex-start; gap: 20px;">
+    
     <div class="d-flex flex-wrap">
-      <div class="card" style="width: 25rem; margin-right: 20px">
+      <div class="card card-imagen" style="width: 25rem; margin-right: 20px">
         <img
           src="../assets/imagenes/rodolfo1.jpg"
           alt="Descripción de la imagen"
@@ -90,6 +95,7 @@ const descargarPDF = async () => {
         </div>
       </div>
     </div>
+  
 
 
   <div v-if="descripcionSeis" style="flex: 1;">
@@ -113,7 +119,8 @@ const descargarPDF = async () => {
     </div>
   </div>
   <div v-else>
-    <p>Cargando...</p>
+    <p>Cargando...Esto puede tardar unos minutos.
+    </p>
   </div>
 </div>
 
@@ -143,7 +150,7 @@ const descargarPDF = async () => {
         </div>
       </div>
       <div v-else>
-        <p>Cargando...</p>
+        <p>Cargando...Esto puede tardar unos minutos.</p>
       </div>
      </div>
    </div>
@@ -154,6 +161,7 @@ const descargarPDF = async () => {
 </template>
 
 <style scoped>
+
 .texto{
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
@@ -238,4 +246,92 @@ const descargarPDF = async () => {
   border: 0;
 }
 
+
+.embed-responsive {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 576px) and (max-width: 768px) {
+  /* Contenedor principal para permitir superposición */
+  .container {
+    position: relative;
+  background-color: #95AEE9;
+  min-height: 110vh;
+
+  
+
+/* Ajuste de la primera tarjeta */
+.card-introduccion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    margin-left: -40px;
+    z-index: 1; /* Controla el orden de superposición */
+  }
+  .card-imagen {
+    visibility: hidden;
+  }
+  .titulo-imagen{
+    width: 100%;
+  }
+  subtitulo-imagen{
+    width: 100%;
+  }
+  /* Ajuste de la segunda tarjeta */
+  .card-fullstack {
+    position: absolute;
+    top: 500px; /* Ajusta según necesites para la superposición deseada */
+    left: 0;
+    width: 90%;
+    margin-left: -40px;
+    z-index: 2;
+  }
+
+  /* Ajuste de la tarjeta de programación */
+  .card-programacion {
+    position: absolute;
+    top: 260px; /* Ajusta según necesites */
+    left: 0;
+    width: 90%;
+    height: 580px;
+    margin-left: -40px;
+    z-index: 3;
+  }
+
+  /* Ajuste del video */
+  .embed-responsive {
+    position: absolute;
+    min-height: 0px; /* Ajuste específico para el video en pantallas pequeñas */
+    top: 590px; /* Ajusta según necesites */
+    width: 70%;
+    height: -80%;
+    margin-left: 00px;
+    padding: -20% ;
+    z-index: 4;
+  }
+  .embed-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160%;
+    height: 100%;
+    margin-left: -100px;
+  }
+
+ 
+  /* Ajuste del botón de descarga */
+  .position-button {
+    position: absolute;
+    top: 760px; /* Ajusta según necesites */
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+  }
+  
+  }
+
+
+}
 </style>

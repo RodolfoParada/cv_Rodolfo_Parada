@@ -43,7 +43,7 @@ onMounted(() => {
       <h1 class="titulo">¿Quién Soy?</h1>
 
       <component :is="currentComponent"></component> <!-- Renderiza el componente actual -->
-      <div>
+      <div class="botones">
         <button class="button-color text-white rounded-pill px-2 py-2" @click="prevPage" :disabled="currentPage === 1">Anterior</button>
         <span class="text-white p-3">Página {{ currentPage }} de {{ totalPages }}</span>
         <button class="button-color text-white rounded-pill px-2 py-2" @click="nextPage" :disabled="currentPage === totalPages">Siguiente</button>
@@ -102,6 +102,27 @@ button:hover {
    height: 40px;
    margin-top: 110px;
 }
+
+@media (max-width: 579px) {
+  /* Contenedor principal para permitir superposición */
+  .container {
+    position: relative;
+  }
+.botones{
+  position: absolute;
+    top: 1800px;
+    left: 0;
+    width: 80%;
+    margin-left: 0px;
+    z-index: 1; /* Controla el orden de superposición */
+}
+.titulo{
+  margin-left: -60px; /* Ajuste de margen para centrar */
+    margin-right: auto;
+    width: 100%;
+} 
+
+  }
 </style>
 
 

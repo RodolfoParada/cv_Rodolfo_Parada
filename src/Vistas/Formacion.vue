@@ -8,9 +8,15 @@ const timelineRef = ref(null);
 let scrollInterval = null;
 const obtenerFormaciones = async () => {
   try {
-    // const response = await axios.get("http://localhost:8080/quienSoy/formacion");
-    // const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/formacion");
+     //const response = await axios.get("http://localhost:8080/quienSoy/formacion");
+
+    // este endpoint funciona en local consume el enpoint de vercel
+    //const response = await axios.get("https://curriculum-rodolfo-parada-api.onrender.com/quienSoy/formacion");
+    
+    
+    //este endpoint funciona en github para que en vercel pueda mostrar la información de los enpoind del backend
     const response = await axios.get("/api/quienSoy/formacion");
+    
     formaciones.value = response.data; // Asignar la respuesta a la referencia
     console.log("Datos de formaciones:", formaciones.value);
   } catch (error) {
@@ -108,9 +114,9 @@ onMounted(() => {
       </div>
     </div>
     <div v-else>
-      <p>Cargando Formación...</p>
+      <p>Estamos cargando la información de Formación desde la API. Esto puede tardar unos minutos.</p>
     </div>
-    <div class="">
+    <div class="botones">
       <button
         @mousedown="startScrollLeft"
         @mouseup="stopScroll"
@@ -246,4 +252,61 @@ onMounted(() => {
    max-width: 100px;
    height: 40px;
 }
+@media (max-width: 576px) and (max-width: 768px) {
+  .container {
+    margin-top: 10px; /* Ajusta el margen superior para pantallas más pequeñas */
+  }
+
+  .timeline-wrapper {
+    flex-direction: column; /* Cambia la dirección de la línea de tiempo para que sea vertical */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    gap: 10px; /* Reduce el espacio entre los elementos */
+  }
+
+  .timeline-container {
+    flex-direction: column; /* Cambia a columna */
+    gap: 10px; /* Ajusta el espacio entre los items */
+    margin-top: -90px;
+    margin-left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%; /* Los elementos ocuparán todo el ancho */
+    margin: 10px 0; /* Ajusta el margen entre los items */
+  }
+
+  .imagenes {
+    width: 80px; /* Reduce el tamaño de las imágenes para que se adapten mejor */
+    height: 80px;
+  }
+
+  .titulo {
+    font-size: 18px; /* Ajusta el tamaño del título */
+    margin-bottom: 20px;
+  }
+
+  .scroll-button {
+    width: 80px; /* Reduce el tamaño de los botones */
+    margin: 10px; /* Ajusta el margen de los botones */
+  }
+
+  .scroll-buttons-container {
+    flex-direction: column; /* Cambia la dirección de los botones */
+    align-items: center; /* Centra los botones */
+  }
+
+  .button-color {
+    max-width: 80px; /* Ajusta el ancho de los botones */
+    height: 35px; /* Ajusta la altura de los botones */
+    margin-left: 10px;
+  }
+
+  .timeline-container::-webkit-scrollbar {
+    width: 8px; /* Reduce el tamaño del scrollbar en pantallas pequeñas */
+  }
+  .botones{
+    margin-left: -110px;
+  }
+}
+
 </style>

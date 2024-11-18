@@ -78,4 +78,12 @@
   height: 30px;
   margin: 0 10px; /* Espacio horizontal entre imágenes */
 }
+
+@media (max-width: 579px) {
+  .footer {
+    height: 168px; /* Ajusta la altura a tus necesidades */
+    padding: 0px 0; /* Agrega un poco de espacio interno para aumentar la altura */
+    text-align: center; /* Centra el contenido en el footer */
+  }
+}
 </style>
